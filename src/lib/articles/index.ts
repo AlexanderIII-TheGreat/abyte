@@ -187,7 +187,7 @@ export async function getRelatedArticles(
       const score = (isSameCategory ? 2 : 0) + matchingTagsCount
       return { mapped, score }
     })
-    .sort((a, b) => b.score - a.score)
+    .sort((a: { score: number }, b: { score: number }) => b.score - a.score)
     .slice(0, limit)
     .map((item: { mapped: Article; score: number }) => item.mapped)
 }
