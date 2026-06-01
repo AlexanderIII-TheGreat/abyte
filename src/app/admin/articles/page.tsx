@@ -64,7 +64,7 @@ export default async function AdminArticlesPage() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
-                {articles.map((article) => {
+                {articles.map((article: { id: string; slug: string; coverImage: string; featured: boolean; datePublished: string | Date; translations: { languageCode: string; title: string; description: string; content: string; readingTime: string }[]; category: { slug: string; translations: { name: string }[] }; author: { name: string; translations: { role: string }[] } }) => {
                   const en = article.translations[0]
                   const catName = article.category.translations[0]?.name ?? article.category.slug
                   return (
@@ -115,7 +115,7 @@ export default async function AdminArticlesPage() {
 
           {/* Mobile Cards */}
           <div className="md:hidden space-y-3">
-            {articles.map((article) => {
+            {articles.map((article: { id: string; slug: string; coverImage: string; featured: boolean; datePublished: string | Date; translations: { languageCode: string; title: string; description: string; content: string; readingTime: string }[]; category: { slug: string; translations: { name: string }[] }; author: { name: string; translations: { role: string }[] } }) => {
               const en = article.translations[0]
               const catName = article.category.translations[0]?.name ?? article.category.slug
               return (
