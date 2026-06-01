@@ -24,13 +24,13 @@ export default async function EditArticlePage({ params }: { params: Promise<{ id
 
   if (!article) notFound()
 
-  const formattedCategories = categories.map((c) => ({
+  const formattedCategories = categories.map((c: { id: string; slug: string; translations: { name: string }[] }) => ({
     id: c.id,
     slug: c.slug,
     name: c.translations[0]?.name ?? c.slug,
   }))
 
-  const formattedAuthors = authors.map((a) => ({
+  const formattedAuthors = authors.map((a: { id: string; name: string }) => ({
     id: a.id,
     name: a.name,
   }))
