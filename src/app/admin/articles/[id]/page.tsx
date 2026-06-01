@@ -43,7 +43,7 @@ export default async function EditArticlePage({ params }: { params: Promise<{ id
     datePublished: article.datePublished.toISOString(),
     categoryId: article.categoryId,
     authorId: article.authorId,
-    translations: article.translations.map((t) => ({
+    translations: article.translations.map((t: { languageCode: string; title: string; description: string; content: string; coverImageAlt: string; readingTime: string }) => ({
       languageCode: t.languageCode,
       title: t.title,
       description: t.description,
@@ -51,7 +51,7 @@ export default async function EditArticlePage({ params }: { params: Promise<{ id
       coverImageAlt: t.coverImageAlt,
       readingTime: t.readingTime,
     })),
-    tags: article.tags.map((at) => at.tag.translations[0]?.name ?? at.tag.slug),
+    tags: article.tags.map((at: { tag: { slug: string; translations: { name: string }[] } }) => at.tag.translations[0]?.name ?? at.tag.slug),
   }
 
   return (
