@@ -111,7 +111,7 @@ export async function getAllArticles(locale: string): Promise<Article[]> {
       datePublished: 'desc',
     },
   })
-  return articles.map((a) => mapToArticle(a, locale))
+  return articles.map((a: any) => mapToArticle(a, locale))
 }
 
 export async function getFeaturedArticles(locale: string): Promise<Article[]> {
@@ -124,7 +124,7 @@ export async function getFeaturedArticles(locale: string): Promise<Article[]> {
       datePublished: 'desc',
     },
   })
-  return articles.map((a) => mapToArticle(a, locale))
+  return articles.map((a: any) => mapToArticle(a, locale))
 }
 
 export async function getArticleBySlug(locale: string, slug: string): Promise<Article | undefined> {
@@ -150,7 +150,7 @@ export async function getArticlesByCategory(locale: string, categorySlug: string
       datePublished: 'desc',
     },
   })
-  return articles.map((a) => mapToArticle(a, locale))
+  return articles.map((a: any) => mapToArticle(a, locale))
 }
 
 export async function getRelatedArticles(
@@ -189,5 +189,5 @@ export async function getRelatedArticles(
     })
     .sort((a, b) => b.score - a.score)
     .slice(0, limit)
-    .map((item) => item.mapped)
+    .map((item: { mapped: Article; score: number }) => item.mapped)
 }
