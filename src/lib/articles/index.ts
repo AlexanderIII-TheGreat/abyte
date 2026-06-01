@@ -97,7 +97,7 @@ export async function getAllCategories(locale: string): Promise<Category[]> {
     },
     orderBy: { slug: 'asc' },
   })
-  return categories.map((c) => ({
+  return categories.map((c: { slug: string; translations: { name: string; description: string }[] }) => ({
     slug: c.slug,
     name: c.translations[0]?.name ?? c.slug,
     description: c.translations[0]?.description ?? '',
@@ -170,7 +170,7 @@ export async function getRelatedArticles(
   if (!current) return []
 
   const currentCategorySlug = current.category.slug
-  const currentTagSlugs = current.tags.map((t) => t.tag.slug)
+  const currentTagSlugs = current.tags.map((t: { tag: { slug: string } }) => t.tag.slug)
 
   const candidates = await prisma.article.findMany({
     where: {
@@ -180,10 +180,10 @@ export async function getRelatedArticles(
   })
 
   return candidates
-    .map((a) => {
+    .map((a: any) => {
       const mapped = mapToArticle(a, locale)
       const isSameCategory = a.category.slug === currentCategorySlug
-      const matchingTagsCount = a.tags.filter((t) => currentTagSlugs.includes(t.tag.slug)).length
+      const matchingTagsCount = a.tags.filter((t: { tag: { slug: string } }) => currentTagSlugs.includes(t.tag.slug)).length
       const score = (isSameCategory ? 2 : 0) + matchingTagsCount
       return { mapped, score }
     })
