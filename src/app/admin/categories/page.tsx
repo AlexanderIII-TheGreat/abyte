@@ -267,7 +267,7 @@ export default function AdminCategoriesPage() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
-                {categories.map((cat) => {
+                {categories.map((cat: { id: string; slug: string; _count: { articles: number }; translations: { languageCode: string; name: string; description: string }[] }) => {
                   const en = getTranslation(cat, 'en')
                   const id = getTranslation(cat, 'id')
                   return (
@@ -320,7 +320,7 @@ export default function AdminCategoriesPage() {
 
           {/* Mobile Cards */}
           <div className="md:hidden space-y-3">
-            {categories.map((cat) => {
+            {categories.map((cat: { id: string; slug: string; _count: { articles: number }; translations: { languageCode: string; name: string; description: string }[] }) => {
               const en = getTranslation(cat, 'en')
               const id = getTranslation(cat, 'id')
               return (

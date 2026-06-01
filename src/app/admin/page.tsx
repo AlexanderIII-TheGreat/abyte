@@ -92,7 +92,7 @@ export default async function AdminDashboard() {
 
       {/* Stats */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6 md:mb-8">
-        {stats.map((stat) => (
+        {stats.map((stat: { label: string; value: number; href: string; icon: React.ReactNode; gradient: string; bgColor: string; textColor: string }) => (
           <Link
             key={stat.label}
             href={stat.href}
