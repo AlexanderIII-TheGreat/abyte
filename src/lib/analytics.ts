@@ -152,7 +152,7 @@ export async function getDeviceBreakdown(range: DateRange) {
     orderBy: { _count: { id: 'desc' } },
   })
 
-  return grouped.map((g) => ({
+  return grouped.map((g: { deviceType: string | null; _count: { id: number } }) => ({
     device: g.deviceType || 'unknown',
     count: g._count.id,
   }))
