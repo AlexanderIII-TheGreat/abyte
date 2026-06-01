@@ -134,7 +134,7 @@ export default async function AdminDashboard() {
           </div>
         ) : (
           <div className="divide-y divide-gray-100">
-            {recentArticles.map((article) => {
+            {recentArticles.map((article: { id: string; slug: string; datePublished: Date; translations: { title: string }[]; category: { slug: string; translations: { name: string }[] } }) => {
               const en = article.translations[0]
               const catName = article.category.translations[0]?.name ?? article.category.slug
               return (
