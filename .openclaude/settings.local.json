@@ -50,7 +50,8 @@
       "Bash(grep -E \"\\(\\\\.env$|\\\\.env\\\\.local|\\\\.next/|node_modules/\\)\")",
       "Bash(git rm:*)",
       "Bash(grep -E \"\\(\\\\.env$|\\\\.env\\\\.local|\\\\.env\\\\.production\\)\")",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ]
   }
 }
