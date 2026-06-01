@@ -15,6 +15,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="theme-color" content="#2563eb" />
         <meta name="author" content={SITE_CONFIG.author.name} />
+        <meta name="google-site-verification" content="dmDPdirJNVew_t2-GMQciIIxDYO0QLFcK7BkSqLatjM" />
       </head>
       <body className="min-h-screen flex flex-col bg-white">
         <AnalyticsScript />
