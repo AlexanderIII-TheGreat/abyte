@@ -46,7 +46,11 @@
       "Bash(npm list:*)",
       "Bash(DIRECT_URL=\"postgresql://postgres.dzmxgepeneajhgxghkpy:abyte132109%23@aws-1-ap-southeast-1.pooler.supabase.com:5432/postgres\" npx prisma db push 2>&1)",
       "Bash(NEXT_BUILD_DIR=.next-analytics-build npx next build)",
-      "Bash(npm i:*)"
+      "Bash(npm i:*)",
+      "Bash(grep -E \"\\(\\\\.env$|\\\\.env\\\\.local|\\\\.next/|node_modules/\\)\")",
+      "Bash(git rm:*)",
+      "Bash(grep -E \"\\(\\\\.env$|\\\\.env\\\\.local|\\\\.env\\\\.production\\)\")",
+      "Bash(git add:*)"
     ]
   }
 }
