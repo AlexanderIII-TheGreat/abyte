@@ -80,7 +80,7 @@ export async function getTopArticles(range: DateRange, limit = 10) {
 
   // Extract slug from path and fetch titles
   const results = await Promise.all(
-    grouped.map(async (g) => {
+    grouped.map(async (g: { path: string; _count: { id: number } }) => {
       const slug = g.path.split('/').pop() || ''
       const article = await prisma.article.findUnique({
         where: { slug },
